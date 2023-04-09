@@ -1,31 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  ProfileContainer,
+  UserDescription,
+  UserAvatar,
+  UserName,
+  UserInfo,
+  UserStats,
+  UserStatsItem,
+} from './Profile.styled';
 
 export function Profile({ avatar, username, tag, location, stats }) {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt="User avatar" className="avatar" />
-        <p className="name">{username}</p>
-        <p className="tag">{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+    <ProfileContainer>
+      <UserDescription>
+        <UserAvatar src={avatar} alt={avatar}/>
+        <UserName>{username}</UserName>
+        <UserInfo>{tag}</UserInfo>
+        <UserInfo>{location}</UserInfo>
+      </UserDescription>
 
-      <ul className="stats">
-        <li>
+      <UserStats>
+        <UserStatsItem>
           <span className="label">Followers</span>
           <span className="quantity">{stats.followers}</span>
-        </li>
-        <li>
+        </UserStatsItem>
+        <UserStatsItem>
           <span className="label">Views</span>
           <span className="quantity">{stats.views}</span>
-        </li>
-        <li>
+        </UserStatsItem>
+        <UserStatsItem>
           <span className="label">Likes</span>
           <span className="quantity">{stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+        </UserStatsItem>
+      </UserStats>
+    </ProfileContainer>
   );
 }
 
