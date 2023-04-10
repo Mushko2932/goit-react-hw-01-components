@@ -32,3 +32,9 @@ export function TransactionHistory({ items }) {
     </TransactionHistoryContainer>
   );
 }
+
+TransactionHistory.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+    })).isRequired,
+}
