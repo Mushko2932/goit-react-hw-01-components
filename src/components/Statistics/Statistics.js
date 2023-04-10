@@ -26,8 +26,8 @@ export function Statistics({ stats }) {
   );
 }
 
-// Statistics.propTypes = {
-//         id: PropTypes.number.isRequired,
-//         label: PropTypes.number.isRequired,
-//         percentage: PropTypes.number.isRequired,
-// }
+Statistics.propTypes = {
+        id: PropTypes.number.isRequired,
+        label: PropTypes.number.isRequired,
+        percentage: PropTypes.number.isRequired,
+}
