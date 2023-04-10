@@ -30,5 +30,4 @@ export function Statistics({ stats }) {
 //         id: PropTypes.number.isRequired,
 //         label: PropTypes.number.isRequired,
 //         percentage: PropTypes.number.isRequired,
-       
 // }
