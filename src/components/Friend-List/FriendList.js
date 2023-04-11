@@ -1,6 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { FriendListContainer, FriendListItem } from './FriendList.styled';
+import {
+  FriendListContainer,
+  FriendListItem,
+  FriendStatus,
+  FriendAvatar,
+  FriendName,
+} from './FriendList.styled';
 
 export function FriendList({ friends}) {
   return (
@@ -8,14 +14,12 @@ export function FriendList({ friends}) {
       {friends.map(friend => {
         return (
           <FriendListItem key={friend.id}>
-            <span className="status">{friend.isOnline}</span>
-            <img
-              className="avatar"
+            <FriendStatus>{friend.isOnline}</FriendStatus>
+            <FriendAvatar
               src={friend.avatar}
               alt={friend.avatar}
-              width="48"
             />
-            <p className="name">{friend.name}</p>
+            <FriendName>{friend.name}</FriendName>
           </FriendListItem>
         );
       })}
@@ -24,7 +28,12 @@ export function FriendList({ friends}) {
 }
 
 FriendList.propTypes = {
-  friends: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-  })).isRequired,
-}
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+};

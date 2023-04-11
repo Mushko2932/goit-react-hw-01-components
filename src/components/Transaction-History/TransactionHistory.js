@@ -1,40 +1,47 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {
-  TransactionHistoryContainer,
-  TransactionHistoryTitle,
-  TransactionHistoryBody,
+  TransactionContainer,
+  TransactionHeader,
+  TransactionTitle,
+  TransactionItem,
+  TransactionBody,
+  TransactionLine,
+  TransactionValue,
 } from './TransactionHistory.styled';
 
 
 export function TransactionHistory({ items }) {
   return (
-    <TransactionHistoryContainer>
-      <TransactionHistoryTitle>
-        <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
-        </tr>
-      </TransactionHistoryTitle>
+    <TransactionContainer>
+      <TransactionHeader>
+        <TransactionTitle>
+          <TransactionItem>Type</TransactionItem>
+          <TransactionItem>Amount</TransactionItem>
+          <TransactionItem>Currency</TransactionItem>
+        </TransactionTitle>
+      </TransactionHeader>
 
-      <TransactionHistoryBody>
+      <TransactionBody>
         {items.map(item => {
           return (
-            <tr key={item.id}>
-              <td>{item.type}</td>
-              <td>{item.amount}</td>
-              <td>{item.currency}</td>
-            </tr>
+            <TransactionLine key={item.id}>
+              <TransactionValue>{item.type}</TransactionValue>
+              <TransactionValue>{item.amount}</TransactionValue>
+              <TransactionValue>{item.currency}</TransactionValue>
+            </TransactionLine>
           );
         })}
-      </TransactionHistoryBody>
-    </TransactionHistoryContainer>
+      </TransactionBody>
+    </TransactionContainer>
   );
 }
 
 TransactionHistory.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
     })).isRequired,
 }
