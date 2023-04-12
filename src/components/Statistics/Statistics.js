@@ -7,10 +7,10 @@ import {
   StatItem,
 } from './Statistics.styled';
 
-export function Statistics({ stats }) {
+export function Statistics({ title, stats }) {
   return (
     <StatSection>
-      <StatTitle>Upload stats</StatTitle>
+      {title && <StatTitle>Upload stats</StatTitle>}
 
       <StatList>
         {stats.map(stat => {
